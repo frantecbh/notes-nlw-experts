@@ -5,7 +5,7 @@ type NotesCardProps = {
   note: string
 }
 
-export default function NotesCard() {
+export function NotesCard() {
   return (
     <div className="rounded-md bg-slate-800 p-5 space-y-3 overflow-hidden relative">
       <span className="text-sm font-medium text-slate-300">há 2 dias</span>
