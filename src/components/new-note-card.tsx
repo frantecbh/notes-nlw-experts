@@ -1,9 +1,20 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
+import { ChangeEvent, useState } from 'react'
 
 type NewNoteCardProps = {}
 
 export function NoteNoteCard() {
+  const [isVisible, setIsVisible] = useState(true)
+
+  const handleStartEditor = () => {}
+
+  const handleContentChanged = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (event.target.value === '') {
+      setIsVisible(true)
+    }
+  }
+
   return (
     <Dialog.Root>
       <Dialog.Trigger className=" text-left flex flex-col rounded-md bg-slate-700 p-5 gap-3 outline-none hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400">
@@ -25,17 +36,28 @@ export function NoteNoteCard() {
             <span className="text-sm font-medium text-slate-300">
               Adcionar nota
             </span>
-            <p className="text-sm leading-6 text-slate-400">
-              Comece{' '}
-              <button className="text-lime-400 font-medium hover:underline">
-                gravando uma nota
-              </button>{' '}
-              em áudio ou se preferir{' '}
-              <button className="text-lime-400 font-medium hover:underline">
-                utilize apenas texto
-              </button>
-              .
-            </p>
+            {isVisible ? (
+              <p className="text-sm leading-6 text-slate-400">
+                Comece{' '}
+                <button className="text-lime-400 font-medium hover:underline">
+                  gravando uma nota
+                </button>{' '}
+                em áudio ou se preferir{' '}
+                <button
+                  onClick={() => setIsVisible(false)}
+                  className="text-lime-400 font-medium hover:underline"
+                >
+                  utilize apenas texto
+                </button>
+                .
+              </p>
+            ) : (
+              <textarea
+                autoFocus
+                className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none"
+                onChange={handleContentChanged}
+              />
+            )}
           </div>
           <button
             type="button"
