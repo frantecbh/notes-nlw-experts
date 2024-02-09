@@ -1,8 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
 import { ChangeEvent, FormEvent, useState } from 'react'
-
-type NewNoteCardProps = {}
+import { toast } from 'sonner'
 
 export function NoteNoteCard() {
   const [isVisible, setIsVisible] = useState(true)
@@ -12,6 +11,8 @@ export function NoteNoteCard() {
     event.preventDefault()
 
     console.log(content)
+
+    toast.success('Nota criada com sucesso!')
   }
 
   const handleContentChanged = (event: ChangeEvent<HTMLTextAreaElement>) => {
