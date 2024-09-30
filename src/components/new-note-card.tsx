@@ -107,13 +107,13 @@ export function NoteNoteCard({ onNoteCreate }: NewNoteCardProps) {
 
               {isVisible ? (
                 <p className="text-sm leading-6 text-slate-400">
-                  Comece{' '}
+                  Para começar{' '}
                   <button
                     type="button"
                     onClick={handleStartRecording}
                     className="font-medium text-lime-400 hover:underline"
                   >
-                    gravando uma nota
+                    clique aqui para gravar uma nota
                   </button>{' '}
                   em áudio ou se preferir{' '}
                   <button
@@ -121,7 +121,7 @@ export function NoteNoteCard({ onNoteCreate }: NewNoteCardProps) {
                     onClick={() => setIsVisible(false)}
                     className="font-medium text-lime-400 hover:underline"
                   >
-                    utilize apenas texto
+                    clique aqui e utilize apenas texto
                   </button>
                   .
                 </p>
